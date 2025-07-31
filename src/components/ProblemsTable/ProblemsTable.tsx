@@ -408,8 +408,20 @@ const CodeRunnerModal: React.FC<CodeRunnerModalProps> = ({ problem, onClose }) =
 			toast.error("Failed to save submission result.", { position: "top-center" });
 		}
 	}
+		
+		const [inputRows, setInputRows] = useState<number>(4); // Default rows
 
+const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const value = e.target.value;
+    setInput(value);
+    
+    // Calculate number of lines (minimum 4, maximum 10)
+    const lineCount = Math.max(4, Math.min(value.split('\n').length, 10));
+    setInputRows(lineCount);
+};
 	return (
+		
+
 		<div className='fixed inset-0 bg-black bg-opacity-80 flex justify-center items-center z-50 p-4'>
 			<div className='bg-dark-layer-1 p-6 rounded-lg w-full max-w-7xl max-h-[95vh] flex flex-col'>
 				<div className="flex justify-between items-center mb-4">
@@ -440,12 +452,24 @@ const CodeRunnerModal: React.FC<CodeRunnerModalProps> = ({ problem, onClose }) =
 						</div>
 						<div className="flex flex-col flex-grow">
 								<h3 className="text-lg font-semibold text-white mb-2">Input</h3>
-								<textarea
+								{/* <textarea
 									value={input}
 									onChange={(e) => setInput(e.target.value)}
 									placeholder="Enter your test input here..."
 									className="bg-dark-layer-2 p-3 rounded-md text-sm whitespace-pre-wrap flex-grow w-full text-white font-mono resize-none"
+									
+								/> */
+								
+								<textarea
+    								value={input}
+    								onChange={handleInputChange}
+    								placeholder="Enter your test input here..."
+    								className="bg-dark-layer-2 p-3 rounded-md text-sm whitespace-pre-wrap flex-grow w-full text-white font-mono resize-none"
+    								rows={inputRows}
+    								style={{ minHeight: `${inputRows * 1}rem` }} // Smooth height transition
 								/>
+								}
+								
 						</div>
 						<div className="flex flex-col flex-grow">
 							<h3 className="text-lg font-semibold text-white mb-2">Output</h3>
