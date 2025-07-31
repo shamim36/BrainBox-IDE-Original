@@ -63,12 +63,7 @@ BrainBox IDE is an interactive coding platform designed for educational institut
 
 ## 📁 Folder Structure
 
-/components -> Reusable React components
-/pages -> Route-based pages (e.g., /signin, /dashboard)
-/context -> Recoil global state
-/utils -> Helper functions and TypeScript types
-/styles -> Tailwind & global styles
-/public -> Static assets like images
+![alt text](image-10.png)
 
 
 ---
