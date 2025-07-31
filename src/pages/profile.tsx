@@ -85,7 +85,7 @@ const ProfilePage = () => {
               ))}
             </ul>
           ) : (
-            <p className="text-gray-400 p-3">You haven't solved any problems yet.</p>
+            <p className="text-gray-400 p-3">{`You haven't solved any problems yet.`}</p>
           )}
         </div>
       </div>
