@@ -368,11 +368,11 @@ const CodeRunnerModal: React.FC<CodeRunnerModalProps> = ({ problem, onClose }) =
 	};
 	
 	const handleSubmissionResult = async (isCorrect: boolean, finalOutput: string) => {
-        if(finalOutput == problem.expected_output){
-            isCorrect = true;
-        }else{
-            isCorrect = false;
-        }
+        // if(finalOutput == problem.expected_output){
+        //     isCorrect = true;
+        // }else{
+        //     isCorrect = false;
+        // }
 		if (!user) return;
 		try {
 			await addDoc(collection(firestore, "submissions"), {
