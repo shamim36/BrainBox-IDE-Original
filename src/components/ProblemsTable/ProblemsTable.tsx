@@ -368,11 +368,10 @@ const CodeRunnerModal: React.FC<CodeRunnerModalProps> = ({ problem, onClose }) =
 	};
 	
 	const handleSubmissionResult = async (isCorrect: boolean, finalOutput: string) => {
-        // if(finalOutput == problem.expected_output){
-        //     isCorrect = true;
-        // }else{
-        //     isCorrect = false;
-        // }
+        const words = finalOutput.split(/\s+/);
+    	const newVariable = words.slice(6).join(' ');
+		isCorrect = (newVariable.trim() === problem.expected_output.trim());
+
 		if (!user) return;
 		try {
 			await addDoc(collection(firestore, "submissions"), {
@@ -402,6 +401,8 @@ const CodeRunnerModal: React.FC<CodeRunnerModalProps> = ({ problem, onClose }) =
 				}
 			} else {
                 toast.warn("Submission was not correct. Keep trying!", { position: "top-center" });
+                toast.warn("New Variable - "+newVariable.trim(), { position: "top-center" });
+                toast.warn("Expected Output - "+problem.expected_output.trim(), { position: "top-center" });
             }
 		} catch (error: any) {
 			toast.error("Failed to save submission result.", { position: "top-center" });
@@ -434,7 +435,7 @@ const CodeRunnerModal: React.FC<CodeRunnerModalProps> = ({ problem, onClose }) =
                         <div className="flex flex-col flex-grow">
 							<h3 className="text-lg font-semibold text-white mb-2">Expected Output</h3>
 							<pre className={`bg-dark-layer-2 p-3 rounded-md text-sm whitespace-pre-wrap flex-grow w-full text-red-40 text-gray-200}`}>
-								{problem.test_input}
+								{problem.expected_output}
 							</pre>
 						</div>
 						<div className="flex flex-col flex-grow">
