@@ -99,6 +99,7 @@ const StudentSubmissions: React.FC<Props> = ({ onViewProfile }) => {
             <td className="border p-2">{sub.passed ? "Yes" : "No"}</td>
             <td className="border p-2">{sub.submissionTime?.toDate().toLocaleString()}</td>
             <td className="border p-2">
+             
               <input
                 type="number"
                 min={0}
@@ -106,6 +107,7 @@ const StudentSubmissions: React.FC<Props> = ({ onViewProfile }) => {
                 value={sub.marks || ""}
                 onChange={(e) => handleMarksChange(sub.id, Number(e.target.value))}
                 className="w-16 text-black rounded"
+                aria-label={`Marks for ${sub.language}`}
               />
             </td>
             <td className="border p-2">

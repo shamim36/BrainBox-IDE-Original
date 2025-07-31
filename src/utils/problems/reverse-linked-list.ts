@@ -105,5 +105,5 @@ export const reverseLinkedList: Problem = {
 	starterCode: starterCodeReverseLinkedListJS,
 	handlerFunction: reverseLinkedListHandler,
 	starterFunctionName: "function reverseLinkedList(",
-	order: 2,
+	order: "2",
 };

@@ -1,7 +1,7 @@
 // Description: Main container for the coding playground and problem description.
 // =================================================================================
 import Split from "react-split";
-import ProblemDescription from "./ProblemDescription";
+import ProblemDescription from "./ProblemDescription/ProblemDescription";
 import Playground from "./Playground/Playground";
 import Confetti from "react-confetti";
 import { Problem as WorkspaceProblem } from "@/utils/types/problem";

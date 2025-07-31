@@ -55,6 +55,7 @@ const CodeRunnerModal: React.FC<CodeRunnerModalProps> = ({
             className="border border-gray-300 rounded px-2 py-1"
             value={language}
             onChange={(e) => setLanguage(e.target.value)}
+            aria-label="Select Language"
           >
             <option value="PYTHON3">Python 3</option>
             <option value="CPP14">C++14</option>

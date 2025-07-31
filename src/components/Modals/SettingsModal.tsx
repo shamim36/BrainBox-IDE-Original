@@ -36,6 +36,7 @@ const SettingsModal: React.FC<SettingsModalProps> = ({ setSettings, settings }) 
 							<button
 								className='ml-auto cursor-pointer rounded transition-all'
 								onClick={() => setSettings({ ...settings, settingsModalIsOpen: false })}
+								aria-label="Close settings"
 							>
 								<IoClose />
 							</button>

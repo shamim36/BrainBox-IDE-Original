@@ -29,14 +29,14 @@ const Topbar: React.FC<TopbarProps> = ({ problemPage }) => {
 		const nextProblemKey = Object.keys(problems).find((key) => problems[key].order === nextProblemOrder);
 
 		if (isForward && !nextProblemKey) {
-			const firstProblemKey = Object.keys(problems).find((key) => problems[key].order === 1);
+			const firstProblemKey = Object.keys(problems).find((key) => problems[key].order === "");
 			router.push(`/problems/${firstProblemKey}`);
 		} else if (!isForward && !nextProblemKey) {
-			const lastProblemKey = Object.keys(problems).find(
-				(key) => problems[key].order === Object.keys(problems).length
-			);
-			router.push(`/problems/${lastProblemKey}`);
-		} else {
+		// 	const lastProblemKey = Object.keys(problems).find(
+		// 		// (key) => problems[key].order === Object.keys(problems).length
+		// 	);
+		// 	router.push(`/problems/${lastProblemKey}`);
+		// } else {
 			router.push(`/problems/${nextProblemKey}`);
 		}
 	};
@@ -79,7 +79,7 @@ const Topbar: React.FC<TopbarProps> = ({ problemPage }) => {
 						<a
 							href='https://www.linkedin.com/in/shamim888/'
 							target='_blank'
-							rel='noreferrer'
+							rel='noopener'
 							className='bg-dark-fill-3 py-1.5 px-3 cursor-pointer rounded text-brand-orange hover:bg-dark-fill-2'
 						>
 							😎About Developer

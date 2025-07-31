@@ -5,6 +5,14 @@ export type Example = {
 	explanation?: string;
 	img?: string;
 };
+export interface UserProfile {
+  uid: string;
+  displayName: string;
+  email: string;
+  role: 'user' | 'admin'; // or whatever roles you have
+  solvedProblems: string[];
+}
+
 
 // local problem data
 export type Problem = {

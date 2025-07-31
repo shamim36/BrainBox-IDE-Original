@@ -150,6 +150,7 @@ const AddProblem: React.FC = () => {
                 value={inputs.difficulty}
                 name='difficulty'
                 className='input-style'
+                aria-label="Select Difficulty"
             >
                 <option value="" disabled>Select Difficulty</option>
                 <option value="Easy">Easy</option>
