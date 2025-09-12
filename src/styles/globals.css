@@ -25,6 +25,22 @@ body {
     }
 }
 
+/* globals.css */
+:root {
+  color-scheme: dark; /* make UA form controls prefer dark */
+}
+
+/* Force dark background/text for select menus & options */
+select,
+select:focus,
+select:active,
+option,
+optgroup {
+  background-color: #1f2937; /* tailwind gray-800-ish */
+  color: #e5e7eb;            /* tailwind gray-200-ish */
+}
+
+
 /* dark  scrollbar */
 ::-webkit-scrollbar {
     width: 0.5rem;
